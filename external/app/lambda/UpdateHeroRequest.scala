@@ -1,13 +1,14 @@
-package domains
+package lambda
 
 import scala.beans.BeanProperty
 
-case class Hero(
-    @BeanProperty var id: Long,
+class UpdateHeroRequest(
+    @BeanProperty var id: String,
     @BeanProperty var name: String
 ) {
+
   def this() = this(
-    id = 0,
-    name = ""
+    id = "", name = ""
   )
+
 }

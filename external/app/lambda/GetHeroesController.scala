@@ -1,4 +1,4 @@
-package lambda.hero
+package lambda
 
 import com.amazonaws.services.lambda.runtime.{ Context, RequestHandler }
 import domains.Heroes
@@ -7,7 +7,7 @@ import infrastructures.HeroDBClient
 /**
  * Hero Component
  */
-trait HeroesComponent extends RequestHandler[java.lang.Object, Heroes] {
+trait GetHeroesComponent extends RequestHandler[java.lang.Object, Heroes] {
 
   val client: HeroDBClient
 
@@ -15,6 +15,6 @@ trait HeroesComponent extends RequestHandler[java.lang.Object, Heroes] {
 
 }
 
-class HeroesController extends HeroesComponent {
+class GetHeroesController extends GetHeroesComponent {
   override val client: HeroDBClient = new HeroDBClient()
 }
