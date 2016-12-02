@@ -15,7 +15,8 @@ lazy val commonSettings = Seq(
       oldStrategy(x)
   },
   scalaSource in Compile <<= (baseDirectory in Compile) (_ / "app"),
-  scalaSource in Test <<= (baseDirectory in Test) (_ / "test")
+  scalaSource in Test <<= (baseDirectory in Test) (_ / "test"),
+  resolvers += "maven" at "https://mvnrepository.com/"
 )
 
 lazy val root = (project in file("."))
@@ -38,7 +39,8 @@ lazy val external = project.in(file("./external"))
 lazy val library = project.in(file("./library"))
     .settings(commonSettings: _*)
     .settings(libraryDependencies ++= Seq(
-      "com.amazonaws" % "aws-java-sdk" % "1.10.1"
+      "com.amazonaws" % "aws-java-sdk" % "1.10.1",
+      "org.scalatest" % "scalatest_2.11" % "3.0.1"
     ))
     .settings(
       name := "lambda-hero-library",
