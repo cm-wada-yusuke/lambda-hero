@@ -1,0 +1,21 @@
+version: 0.1
+
+phases:
+  install:
+    commands:
+      - echo Nothing to do in the install phase...
+  pre_build:
+    commands:
+      - echo Nothing to do in the pre_build phase...
+  build:
+    commands:
+      - echo Build started on `date`
+      - sbt test
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - sbt assembly
+artifacts:
+  type: zip
+  files:
+    - external/target/scala-2.11/lambda-hero-external-0.1.0.jar
